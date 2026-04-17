@@ -54,7 +54,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Render injects PORT at runtime; Next.js picks it up via `next start -p`.
+# Render injects PORT at runtime; next start reads it from the env var.
 ENV NODE_ENV=production
 EXPOSE 3000
-CMD ["sh", "-c", "next start -p ${PORT:-3000}"]
+CMD ["npm", "start"]
