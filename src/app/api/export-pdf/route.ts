@@ -33,7 +33,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'invalid body' }, { status: 400 });
   }
 
-  const origin = new URL(req.url).origin;
+  // Puppeteer runs inside the same container as Next.js, so hitting
+  // localhost avoids a full round-trip through the public edge (which can
+  // hit SSL/TLS issues with headless Chrome, and adds latency). The PORT
+  // env var is set by the host (Render injects it, Next.js uses it too).
+  const port = process.env.PORT ?? '3000';
+  const origin = `http://127.0.0.1:${port}`;
 
   // --font-render-hinting=none is critical: without it, Chrome headless on
   // Linux/Mac renders letter-spacing differently than graphical Chrome,
