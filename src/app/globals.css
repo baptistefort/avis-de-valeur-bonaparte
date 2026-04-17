@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #f1eee8;
+  --color-bg-alt: #d2dbda;
+  --color-gold: #ae9e7d;
+  --color-gold-line: #ad9d7d;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-footer: #c9bca4;
+  --font-title: 'Caudex', serif;
+  --font-body: 'Montserrat', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #d5d0ca;
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+/* ===== PDF PAGE CONTAINERS ===== */
+.pdf-spread {
+  width: 1191px;
+  height: 842px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: #f1eee8;
+}
+
+.pdf-single {
+  width: 595px;
+  height: 842px;
+  position: relative;
+  overflow: hidden;
+  background: #f1eee8;
+}
+
+.pdf-half {
+  width: 595.5px;
+  height: 842px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.t-h1 {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-size: 25pt;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.t-h2 {
+  font-family: 'Caudex', serif;
+  font-weight: 400;
+  font-size: 16.5pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ae9e7d;
+  line-height: 1.4;
+}
+
+.t-h3 {
+  font-family: 'Caudex', serif;
+  font-weight: 400;
+  font-size: 25pt;
+  letter-spacing: 0.1em;
+  color: #ae9e7d;
+}
+
+.t-body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.t-body-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.t-body-gold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 10pt;
+  color: #ae9e7d;
+  line-height: 1.6;
+}
+
+.t-small {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 7pt;
+  color: #c9bca4;
+  line-height: 1.4;
+}
+
+.t-page-num {
+  font-family: 'Caudex', serif;
+  font-weight: 400;
+  font-size: 10pt;
+  color: #000000;
+}
+
+/* ===== GOLD DECORATIONS ===== */
+.gold-vline {
+  width: 1.5px;
+  background: #ad9d7d;
+}
+
+.gold-border {
+  border: 1px solid #ad9d7d;
+}
+
+/* ===== EDITABLE ELEMENTS ===== */
+.editable {
+  cursor: pointer;
+  transition: outline 0.15s ease;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.editable:hover {
+  outline: 2px dashed #ad9d7d;
+}
+
+.editable:focus {
+  outline: 2px solid #ad9d7d;
+  cursor: text;
+}
+
+.editable-image {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.editable-image > .edit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.editable-image:hover > .edit-overlay {
+  background: rgba(0,0,0,0.25);
+}
+
+.editable-image > .edit-overlay > span {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  background: rgba(0,0,0,0.55);
+  padding: 4px 12px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.editable-image:hover > .edit-overlay > span {
+  opacity: 1;
+}
+
+/* ===== EXPORTING MODE ===== */
+.exporting .editable:hover {
+  outline: none !important;
+}
+.exporting .editable-image:hover > .edit-overlay {
+  background: transparent !important;
+}
+.exporting .editable-image > .edit-overlay > span {
+  display: none !important;
+}
+.exporting .toolbar {
+  display: none !important;
+}
+.exporting .add-btn {
+  display: none !important;
+}
+
+@media print {
+  .toolbar { display: none !important; }
+  .editable:hover { outline: none !important; }
 }

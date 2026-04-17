@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitignore
+.dockerignore
+.DS_Store
+*.log
+.env*
+.vercel
+.claude
+*.tsbuildinfo
