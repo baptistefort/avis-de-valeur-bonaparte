@@ -23,7 +23,7 @@ export default function Toolbar({ onExportPDF, zoom, setZoom }: ToolbarProps) {
   return (
     <div
       className="toolbar fixed top-0 left-0 right-0 z-50 border-b border-[#ad9d7d]/25 shadow-sm"
-      style={{ background: '#f1eee8' }}
+      style={{ background: '#ffffff' }}
     >
       <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between">
         <div className="flex items-center gap-4">
