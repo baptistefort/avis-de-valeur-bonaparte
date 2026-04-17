@@ -21,13 +21,21 @@ export default function Toolbar({ onExportPDF, zoom, setZoom }: ToolbarProps) {
   };
 
   return (
-    <div className="toolbar fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gold/20 shadow-sm">
-      <div className="max-w-[1400px] mx-auto px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h1 className="text-lg font-serif tracking-[0.15em] text-foreground uppercase">
-            Bonaparte
-          </h1>
-          <span className="text-xs text-taupe font-sans">Avis de Valeur - Editeur</span>
+    <div
+      className="toolbar fixed top-0 left-0 right-0 z-50 border-b border-[#ad9d7d]/25 shadow-sm"
+      style={{ background: '#f1eee8' }}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <img
+            src="/images/logo_bonaparte.png"
+            alt="Bonaparte — Art de Vivre"
+            className="h-10 w-auto select-none"
+            draggable={false}
+          />
+          <span className="text-xs text-[#8a7d65] font-sans tracking-wide">
+            Avis de Valeur — Éditeur
+          </span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-taupe hidden sm:block">
