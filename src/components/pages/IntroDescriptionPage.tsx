@@ -6,7 +6,7 @@ import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
 
 export default function IntroDescriptionPage() {
-  const { intro, description, updateIntro, updateDescription } = useDocumentStore();
+  const { intro, description, contact, updateIntro, updateDescription, updateContact } = useDocumentStore();
 
   /*
    * PDF: Montserrat-Regular 10pt on 256pt width.
@@ -79,12 +79,12 @@ export default function IntroDescriptionPage() {
         {/* PDF y=343.7, but intro text now ends ~y=352, so push down to 360 */}
         <div style={{ position: 'absolute', left: '56.7px', top: '360px' }}>
           <EditableText
-            value={`${intro.consultantPrenom} ${intro.consultantNom}`}
+            value={`${contact.prenom} ${contact.nom}`}
             onChange={(val) => {
               const parts = val.split(' ');
               const nom = parts.pop() || '';
               const prenom = parts.join(' ');
-              updateIntro({ consultantPrenom: prenom, consultantNom: nom });
+              updateContact({ prenom, nom });
             }}
             tag="span"
             style={{
