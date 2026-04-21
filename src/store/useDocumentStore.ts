@@ -265,7 +265,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
 
   mandat: {
     photoMandat: '/images/page7_img1.jpeg',
-    photosStrategie: ['/images/page7_img2.jpeg', '/images/page7_img3.jpeg', '/images/page7_img4.jpeg', '/images/page7_img5.jpeg'],
+    photosStrategie: ['/images/page7_img2.jpeg', '/images/page7_img3.jpeg', '/images/page7_img4.jpeg', '/images/page7_img5.jpeg', '/images/brochure_clean.png'],
   },
 
   diffusion: {

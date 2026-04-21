@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import EditableText from '../EditableText';
 import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
 
@@ -32,24 +31,25 @@ export default function MandatStrategiePage() {
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="LE MANDAT" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="BONAPARTE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>LE MANDAT</div>
+          <div style={{ margin: 0 }}>BONAPARTE</div>
         </div>
 
         {/* Subtitle gold */}
-        <div style={{ position: 'absolute', left: '57px', top: '160px', width: '400px' }}>
-          <EditableText
-            value="Une stratégie sur mesure, un suivi rigoureux."
-            onChange={() => {}}
-            tag="p"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '11pt', color: '#ae9e7d', lineHeight: '16pt' }}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', top: '160px', width: '400px',
+          fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '11pt',
+          color: '#ae9e7d', lineHeight: '16pt', margin: 0,
+        }}>
+          Une stratégie sur mesure, un suivi rigoureux.
+        </p>
 
         {/* SERVICES */}
-        <EditableText value="SERVICES" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '57px', top: '213px', fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt', letterSpacing: '0.15em', color: '#ae9e7d' }} />
-
+        <span style={{
+          position: 'absolute', left: '57px', top: '213px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt',
+          letterSpacing: '0.15em', color: '#ae9e7d',
+        }}>SERVICES</span>
 
         {/* Gold line from first to last service item, aligned to S of SERVICES */}
         <div style={{
@@ -72,11 +72,11 @@ export default function MandatStrategiePage() {
               <span style={{ fontFamily: "'Caudex', serif", fontSize: '13pt', color: '#ae9e7d' }}>{s.num}</span>
             </div>
             <div>
-              <EditableText value={s.title} onChange={() => {}} tag="div"
-                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '1px', whiteSpace: 'nowrap' }} />
-              <div style={{ width: '290px' }}>
-                <EditableText value={s.desc} onChange={() => {}} tag="div" multiline
-                  style={bodyText} />
+              <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '1px', whiteSpace: 'nowrap' }}>
+                {s.title}
+              </div>
+              <div style={{ width: '290px', ...bodyText }}>
+                {s.desc}
               </div>
             </div>
           </div>
@@ -92,88 +92,98 @@ export default function MandatStrategiePage() {
       {/* ============ RIGHT HALF ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
-        {/* Title STRATÉGIE DE COMMUNICATION BONAPARTE - PDF: [57,60], [57,90], [57,120] */}
+        {/* Title STRATÉGIE DE COMMUNICATION BONAPARTE */}
         <div style={{
           position: 'absolute', left: '57px', top: '40px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="STRATÉGIE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="DE COMMUNICATION" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="BONAPARTE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>STRATÉGIE</div>
+          <div style={{ margin: 0 }}>DE COMMUNICATION</div>
+          <div style={{ margin: 0 }}>BONAPARTE</div>
         </div>
 
-        {/* Intro text - PDF: [57, 165], 3 lines, width ~255 */}
-        <div style={{ position: 'absolute', left: '57px', top: '165px', width: '280px' }}>
-          <EditableText
-            value="Chaque propriété mérite une mise en lumière unique. BONAPARTE transforme votre bien en signature visuelle, pour capter l'attention dès le premier regard."
-            onChange={() => {}}
-            tag="p" multiline
-            style={{ ...bodyText, textAlign: 'justify' }}
-          />
-        </div>
+        {/* Intro text */}
+        <p style={{
+          position: 'absolute', left: '57px', top: '165px', width: '280px',
+          ...bodyText, textAlign: 'justify', margin: 0,
+        }}>
+          Chaque propriété mérite une mise en lumière unique. BONAPARTE transforme votre bien en signature visuelle, pour capter l&apos;attention dès le premier regard.
+        </p>
 
         {/* === MISE EN VALEUR === */}
-        {/* Gold line - PDF: x=189, y=216→250 */}
         <div style={{ position: 'absolute', left: '115px', top: '242px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
+        <span style={{
+          position: 'absolute', left: '113px', top: '280px',
+          fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d',
+        }}>MISE EN VALEUR</span>
+        <p style={{
+          position: 'absolute', left: '113px', top: '306px', width: '250px',
+          ...bodyText, textAlign: 'justify', margin: 0,
+        }}>
+          Photographies, mise en scène et rédaction sont travaillées avec précision pour donner une lecture claire du bien.
+        </p>
 
-        <EditableText value="MISE EN VALEUR" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '113px', top: '280px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d' }} />
-        <div style={{ position: 'absolute', left: '113px', top: '306px', width: '250px' }}>
-          <EditableText value="Photographies, mise en scène et rédaction sont travaillées avec précision pour donner une lecture claire du bien."
-            onChange={() => {}} tag="p" multiline style={{ ...bodyText, textAlign: 'justify' }} />
-        </div>
-
-        {/* Photos MISE EN VALEUR - 2 superposees */}
-        <img src="/images/page7_img2.jpeg" alt="" draggable={false}
-          style={{ position: 'absolute', left: '418px', top: '250px', width: '151px', height: '101px', objectFit: 'cover', zIndex: 1 }} />
-        <img src="/images/page7_img3.jpeg" alt="" draggable={false}
-          style={{ position: 'absolute', left: '396px', top: '310px', width: '103px', height: '69px', objectFit: 'cover', zIndex: 2 }} />
+        {/* Photos MISE EN VALEUR */}
+        <EditableImage src={mandat.photosStrategie[0]} onChange={(p) => updateStratPhoto(0, p)}
+          alt="Mise en valeur 1"
+          style={{ position: 'absolute', left: '418px', top: '250px', width: '151px', height: '101px', zIndex: 1 }} />
+        <EditableImage src={mandat.photosStrategie[1]} onChange={(p) => updateStratPhoto(1, p)}
+          alt="Mise en valeur 2"
+          style={{ position: 'absolute', left: '396px', top: '310px', width: '103px', height: '69px', zIndex: 2 }} />
 
         {/* === PRODUCTION VIDÉO === */}
-        {/* Gold line - PDF: x=189, y=351→384 */}
         <div style={{ position: 'absolute', left: '115px', top: '377px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
+        <span style={{
+          position: 'absolute', left: '113px', top: '414px',
+          fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d',
+        }}>PRODUCTION VIDÉO</span>
+        <p style={{
+          position: 'absolute', left: '113px', top: '441px', width: '250px',
+          ...bodyText, textAlign: 'justify', margin: 0,
+        }}>
+          Contenus vidéo et formats courts pensés pour capter l&apos;attention et valoriser les volumes.
+        </p>
 
-        <EditableText value="PRODUCTION VIDÉO" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '113px', top: '414px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d' }} />
-        <div style={{ position: 'absolute', left: '113px', top: '441px', width: '250px' }}>
-          <EditableText value="Contenus vidéo et formats courts pensés pour capter l'attention et valoriser les volumes."
-            onChange={() => {}} tag="p" multiline style={{ ...bodyText, textAlign: 'justify' }} />
-        </div>
-
-        {/* Photos PRODUCTION VIDÉO - 2 cote a cote */}
-        <img src="/images/page7_img4.jpeg" alt="" draggable={false}
-          style={{ position: 'absolute', left: '396px', top: '440px', width: '93px', height: '94px', objectFit: 'cover', zIndex: 1 }} />
-        <img src="/images/page7_img5.jpeg" alt="" draggable={false}
-          style={{ position: 'absolute', left: '476px', top: '413px', width: '92px', height: '139px', objectFit: 'cover', zIndex: 1 }} />
+        {/* Photos PRODUCTION VIDÉO */}
+        <EditableImage src={mandat.photosStrategie[2]} onChange={(p) => updateStratPhoto(2, p)}
+          alt="Production vidéo 1"
+          style={{ position: 'absolute', left: '396px', top: '440px', width: '93px', height: '94px', zIndex: 1 }} />
+        <EditableImage src={mandat.photosStrategie[3]} onChange={(p) => updateStratPhoto(3, p)}
+          alt="Production vidéo 2"
+          style={{ position: 'absolute', left: '476px', top: '413px', width: '92px', height: '139px', zIndex: 1 }} />
 
         {/* === RÉSEAUX SOCIAUX === */}
-        {/* Gold line - PDF: x=189, y=471→505 */}
         <div style={{ position: 'absolute', left: '115px', top: '502px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
-
-        <EditableText value="RÉSEAUX SOCIAUX" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '113px', top: '535px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d' }} />
-        <div style={{ position: 'absolute', left: '113px', top: '562px', width: '250px' }}>
-          <EditableText value="Réels Instagram et YouTube, conçus selon les codes de la Maison et les patterns techniques des plateformes, afin d'amplifier une visibilité auprès d'une audience qualifiée."
-            onChange={() => {}} tag="p" multiline style={{ ...bodyText, textAlign: 'justify' }} />
-        </div>
-
+        <span style={{
+          position: 'absolute', left: '113px', top: '535px',
+          fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d',
+        }}>RÉSEAUX SOCIAUX</span>
+        <p style={{
+          position: 'absolute', left: '113px', top: '562px', width: '250px',
+          ...bodyText, textAlign: 'justify', margin: 0,
+        }}>
+          Réels Instagram et YouTube, conçus selon les codes de la Maison et les patterns techniques des plateformes, afin d&apos;amplifier une visibilité auprès d&apos;une audience qualifiée.
+        </p>
 
         {/* Photo BROCHURE */}
-        <img src="/images/brochure_clean.png" alt="" draggable={false}
-          style={{ position: 'absolute', left: '410px', top: '590px', width: '158px', height: '218px', objectFit: 'cover', zIndex: 1 }} />
+        <EditableImage src={mandat.photosStrategie[4]} onChange={(p) => updateStratPhoto(4, p)}
+          alt="Brochure"
+          style={{ position: 'absolute', left: '410px', top: '590px', width: '158px', height: '218px', zIndex: 1 }} />
 
         {/* === BROCHURE === */}
-        {/* Gold line - PDF: x=189, y=620→654 */}
         <div style={{ position: 'absolute', left: '115px', top: '652px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
-
-        <EditableText value="BROCHURE" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '113px', top: '684px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d' }} />
-        <div style={{ position: 'absolute', left: '113px', top: '711px', width: '250px' }}>
-          <EditableText value="Des supports personnalisés pour sublimer le bien et en assurer une présentation optimale."
-            onChange={() => {}} tag="p" multiline style={{ ...bodyText, textAlign: 'justify' }} />
-        </div>
+        <span style={{
+          position: 'absolute', left: '113px', top: '684px',
+          fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.12em', color: '#ae9e7d',
+        }}>BROCHURE</span>
+        <p style={{
+          position: 'absolute', left: '113px', top: '711px', width: '250px',
+          ...bodyText, textAlign: 'justify', margin: 0,
+        }}>
+          Des supports personnalisés pour sublimer le bien et en assurer une présentation optimale.
+        </p>
 
         <span style={{ position: 'absolute', left: '563px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>13</span>
       </div>
