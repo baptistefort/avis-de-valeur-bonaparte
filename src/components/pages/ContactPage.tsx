@@ -22,13 +22,12 @@ export default function ContactPage() {
         alt="Photo consultant"
         style={{ position: 'absolute', left: '0px', top: '54px', width: '295px', height: '554px' }} />
 
-      {/* CONTACT - PDF: x=340, y=151, Caudex-Bold 25.5pt */}
-      <EditableText value="CONTACT" onChange={() => {}} tag="h2"
-        style={{
-          position: 'absolute', left: '340px', top: '151px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
-          letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000000', margin: 0,
-        }} />
+      {/* CONTACT - PDF: x=340, y=151, Caudex-Bold 25.5pt (STATIC) */}
+      <h2 style={{
+        position: 'absolute', left: '340px', top: '151px',
+        fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+        letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000000', margin: 0,
+      }}>CONTACT</h2>
 
       {/* Gold line - longer and more centered under CONTACT */}
       <div style={{ position: 'absolute', left: '430px', top: '205px', width: '0.8px', height: '60px', background: '#ad9d7d' }} />
@@ -82,7 +81,7 @@ export default function ContactPage() {
         <svg style={iconStyle} viewBox="0 0 24 24" fill="none" stroke="#ae9e7d" strokeWidth="1.5">
           <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
-        <EditableText value="www.bonaparte-artdevivre.com" onChange={() => {}} tag="span"
+        <EditableText value={contact.website} onChange={(website) => updateContact({ website })} tag="span"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000' }} />
       </div>
 
@@ -91,7 +90,7 @@ export default function ContactPage() {
         <svg style={iconStyle} viewBox="0 0 24 24" fill="none" stroke="#ae9e7d" strokeWidth="1.5">
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
-        <EditableText value="reception@bonaparte-artdevivre.com" onChange={() => {}} tag="span"
+        <EditableText value={contact.emailReception} onChange={(emailReception) => updateContact({ emailReception })} tag="span"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '8.5pt', color: '#000000' }} />
       </div>
 
@@ -100,14 +99,14 @@ export default function ContactPage() {
         <img src="/images/logo_bonaparte.png" alt="Bonaparte" style={{ width: '280px', height: 'auto' }} draggable={false} />
       </div>
 
-      {/* Footer - PDF: y=785 and y=793 */}
+      {/* Footer - PDF: y=785 and y=793 (STATIC) */}
       <div style={{ position: 'absolute', bottom: '40px', left: '0', right: '0', textAlign: 'center', zIndex: 2 }}>
-        <EditableText value="Siège social : Terre Blanche - 104 Impasse des grandes terrasses, 83440 Tourrettes."
-          onChange={() => {}} tag="div"
-          style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '6pt', color: '#c9bca4' }} />
-        <EditableText value="Bureau Paris : 78 Boulevard Haussmann 75008 PARIS (bureau de représentation)"
-          onChange={() => {}} tag="div"
-          style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '6pt', color: '#c9bca4', marginTop: '2px' }} />
+        <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '6pt', color: '#c9bca4' }}>
+          Siège social : Terre Blanche - 104 Impasse des grandes terrasses, 83440 Tourrettes.
+        </div>
+        <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '6pt', color: '#c9bca4', marginTop: '2px' }}>
+          Bureau Paris : 78 Boulevard Haussmann 75008 PARIS (bureau de représentation)
+        </div>
       </div>
     </div>
   );

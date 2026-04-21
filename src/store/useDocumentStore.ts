@@ -125,6 +125,8 @@ export interface DocumentState {
     localisation: string;
     telephone: string;
     email: string;
+    website: string;
+    emailReception: string;
   };
 
   // Actions
@@ -280,6 +282,8 @@ export const useDocumentStore = create<DocumentState>((set) => ({
     localisation: 'Saint-Tropez',
     telephone: '+33 6 16 90 03 71',
     email: 'c.laurent@bonaparte-artdevivre.com',
+    website: 'www.bonaparte-artdevivre.com',
+    emailReception: 'reception@bonaparte-artdevivre.com',
   },
 
   // Actions
