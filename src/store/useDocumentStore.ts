@@ -59,6 +59,22 @@ export interface DocumentState {
     annexes: string;
     gardien: string;
     photo: string;
+    labels: {
+      nombrePieces: string;
+      etage: string;
+      niveau: string;
+      etatGeneral: string;
+      exposition: string;
+      vue: string;
+      espaceExterieur: string;
+      ascenseur: string;
+      anneeConstruction: string;
+      modeChauffage: string;
+      eauChaude: string;
+      charges: string;
+      annexes: string;
+      gardien: string;
+    };
   };
 
   // Page 3 - Valorisation
@@ -211,6 +227,22 @@ export const useDocumentStore = create<DocumentState>((set) => ({
     annexes: 'place de parking, cave',
     gardien: 'Oui',
     photo: '/images/page3_img1.jpeg',
+    labels: {
+      nombrePieces: 'Nombre de pièces :',
+      etage: 'Étage :',
+      niveau: 'Niveau :',
+      etatGeneral: 'État général :',
+      exposition: 'Exposition :',
+      vue: 'Vue :',
+      espaceExterieur: 'Espace extérieur :',
+      ascenseur: 'Ascenseur :',
+      anneeConstruction: 'Année de construction :',
+      modeChauffage: 'Mode de chauffage :',
+      eauChaude: 'Eau chaude :',
+      charges: 'Charges :',
+      annexes: 'Annexes :',
+      gardien: 'Gardien à demeure :',
+    },
   },
 
   valorisation: {

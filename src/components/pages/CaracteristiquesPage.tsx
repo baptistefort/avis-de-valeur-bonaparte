@@ -14,22 +14,17 @@ export default function CaracteristiquesPage() {
     textAlign: 'left',
   };
 
-  const caracFields = [
-    { label: 'Nombre de pièces :', key: 'nombrePieces' as const },
-    { label: 'Étage :', key: 'etage' as const },
-    { label: 'Niveau :', key: 'niveau' as const },
-    { label: 'État général :', key: 'etatGeneral' as const },
-    { label: 'Exposition :', key: 'exposition' as const },
-    { label: 'Vue :', key: 'vue' as const },
-    { label: 'Espace extérieur :', key: 'espaceExterieur' as const },
-    { label: 'Ascenseur :', key: 'ascenseur' as const },
-    { label: 'Année de construction :', key: 'anneeConstruction' as const },
-    { label: 'Mode de chauffage :', key: 'modeChauffage' as const },
-    { label: 'Eau chaude :', key: 'eauChaude' as const },
-    { label: 'Charges :', key: 'charges' as const },
-    { label: 'Annexes :', key: 'annexes' as const },
-    { label: 'Gardien à demeure :', key: 'gardien' as const },
-  ];
+  const caracFieldKeys = [
+    'nombrePieces', 'etage', 'niveau', 'etatGeneral', 'exposition', 'vue',
+    'espaceExterieur', 'ascenseur', 'anneeConstruction', 'modeChauffage',
+    'eauChaude', 'charges', 'annexes', 'gardien',
+  ] as const;
+
+  const updateLabel = (key: keyof typeof caracteristiques.labels, v: string) => {
+    updateCaracteristiques({
+      labels: { ...caracteristiques.labels, [key]: v },
+    });
+  };
 
   const updateAvantage = (index: number, value: string) => {
     const updated = [...valorisation.avantages];
@@ -119,24 +114,25 @@ export default function CaracteristiquesPage() {
           position: 'absolute', top: '451.6px', left: '0px', width: '340px',
           display: 'flex', flexDirection: 'column', alignItems: 'center',
         }}>
-          {caracFields
-            .filter((field) => caracteristiques[field.key]?.trim())
-            .map((field) => (
-            <div key={field.key} style={{
+          {caracFieldKeys
+            .filter((key) => caracteristiques[key]?.trim())
+            .map((key) => (
+            <div key={key} style={{
               display: 'flex', alignItems: 'baseline', marginBottom: '3.4pt',
               whiteSpace: 'nowrap',
             }}>
-              <span
+              <EditableText
+                value={caracteristiques.labels[key]}
+                onChange={(v) => updateLabel(key, v)}
+                tag="span"
                 style={{
                   fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
                   fontSize: '8.5pt', color: '#000000',
                 }}
-              >
-                {field.label}
-              </span>
+              />
               <EditableText
-                value={caracteristiques[field.key]}
-                onChange={(v) => updateCaracteristiques({ [field.key]: v })}
+                value={caracteristiques[key]}
+                onChange={(v) => updateCaracteristiques({ [key]: v })}
                 tag="span"
                 style={{
                   fontFamily: "'Montserrat', sans-serif", fontWeight: 400,
