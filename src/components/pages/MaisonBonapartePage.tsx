@@ -95,7 +95,6 @@ export default function MaisonBonapartePage() {
         <EditableImage src={maisonBonaparte.photoAgence} onChange={(p) => updateMaisonBonaparte({ photoAgence: p })}
           alt="Photo agence" style={{ position: 'absolute', left: '0px', top: '597px', width: '420px', height: '245px' }} />
 
-        <span style={{ position: 'absolute', left: '569px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>10</span>
       </div>
 
       {/* ============ RIGHT HALF ============ */}
@@ -188,7 +187,6 @@ export default function MaisonBonapartePage() {
           Une présence partout en France, qui garantit le même niveau d&apos;exigence et d&apos;excellence.
         </p>
 
-        <span style={{ position: 'absolute', left: '569px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>11</span>
       </div>
     </div>
   );

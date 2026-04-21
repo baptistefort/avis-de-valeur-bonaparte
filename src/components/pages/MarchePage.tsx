@@ -77,11 +77,6 @@ export default function MarchePage() {
           }}
         />
 
-        {/* Page number 6 */}
-        <span style={{
-          position: 'absolute', left: '569px', top: '811px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '8.5pt', color: '#000000',
-        }}>6</span>
       </div>
 
       {/* ============ RIGHT HALF ============ */}
@@ -138,11 +133,6 @@ export default function MarchePage() {
           ))}
         </div>
 
-        {/* Page number 7 */}
-        <span style={{
-          position: 'absolute', left: '569px', top: '811px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '8.5pt', color: '#000000',
-        }}>7</span>
       </div>
     </div>
   );

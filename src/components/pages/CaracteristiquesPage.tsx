@@ -143,11 +143,6 @@ export default function CaracteristiquesPage() {
           ))}
         </div>
 
-        {/* Page number 4 */}
-        <span style={{
-          position: 'absolute', left: '568.6px', top: '810.7px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '8.5pt', color: '#000000',
-        }}>4</span>
       </div>
 
       {/* ============ RIGHT HALF ============ */}
@@ -245,11 +240,6 @@ export default function CaracteristiquesPage() {
           ))}
         </div>
 
-        {/* Page number 5 */}
-        <span style={{
-          position: 'absolute', left: '569px', top: '810.7px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '8.5pt', color: '#000000',
-        }}>5</span>
       </div>
     </div>
   );

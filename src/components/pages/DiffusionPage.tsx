@@ -20,7 +20,6 @@ export default function DiffusionPage() {
         <EditableImage src={diffusion.photo} onChange={(photo) => updateDiffusion({ photo })}
           alt="Photo diffusion" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
 
-        <span style={{ position: 'absolute', left: '569px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#ffffff' }}>14</span>
       </div>
 
       {/* ============ RIGHT HALF (ALL STATIC) ============ */}
@@ -82,7 +81,6 @@ export default function DiffusionPage() {
         <img src="/images/portails_logos.png" alt="" draggable={false}
           style={{ position: 'absolute', left: '25px', top: '500px', width: '545px', height: 'auto' }} />
 
-        <span style={{ position: 'absolute', left: '569px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>15</span>
       </div>
     </div>
   );

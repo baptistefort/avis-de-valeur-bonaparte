@@ -169,14 +169,6 @@ export default function IntroDescriptionPage() {
           }}
         />
 
-        {/* Page number "3" */}
-        <span style={{
-          position: 'absolute', left: '569px', top: '811px',
-          fontFamily: "'Caudex', serif", fontWeight: 400,
-          fontSize: '10pt', color: '#000000',
-        }}>
-          3
-        </span>
       </div>
     </div>
   );

@@ -86,7 +86,6 @@ export default function MandatStrategiePage() {
         <EditableImage src={mandat.photoMandat} onChange={(p) => updateMandat({ photoMandat: p })}
           alt="Photo mandat" style={{ position: 'absolute', left: '0px', top: '540px', width: '471px', height: '302px' }} />
 
-        <span style={{ position: 'absolute', left: '562px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>12</span>
       </div>
 
       {/* ============ RIGHT HALF ============ */}
@@ -185,7 +184,6 @@ export default function MandatStrategiePage() {
           Des supports personnalisés pour sublimer le bien et en assurer une présentation optimale.
         </p>
 
-        <span style={{ position: 'absolute', left: '563px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>13</span>
       </div>
     </div>
   );
