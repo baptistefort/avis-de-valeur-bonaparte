@@ -19,6 +19,12 @@ export default function MaisonBonapartePage() {
     updateMaisonBonaparte({ photosImplantations: updated });
   };
 
+  const updateRegion = (key: keyof typeof maisonBonaparte.regions, value: string) => {
+    updateMaisonBonaparte({
+      regions: { ...maisonBonaparte.regions, [key]: value },
+    });
+  };
+
   return (
     <div className="pdf-spread" style={{ background: '#ffffff' }}>
 
@@ -102,38 +108,42 @@ export default function MaisonBonapartePage() {
         }} />
 
         {/* LA FORCE DU RÉSEAU NATIONAL */}
-        <EditableText value="LA FORCE DU RÉSEAU NATIONAL" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '57px', top: '128px', fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt', letterSpacing: '0.15em', color: '#ae9e7d' }} />
+        <span style={{
+          position: 'absolute', left: '57px', top: '128px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt',
+          letterSpacing: '0.15em', color: '#ae9e7d',
+        }}>LA FORCE DU RÉSEAU NATIONAL</span>
 
-        <div style={{ position: 'absolute', left: '57px', top: '160px', width: '500px' }}>
-          <EditableText
-            value="Seuls les agents les plus performants et expérimentés rejoignent BONAPARTE. Cette sélection exigeante garantit à chaque client un accompagnement d'exception et une valorisation optimale de sa vente."
-            onChange={() => {}}
-            tag="p" multiline
-            style={bodyText}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', top: '160px', width: '500px',
+          ...bodyText, margin: 0,
+        }}>
+          Seuls les agents les plus performants et expérimentés rejoignent BONAPARTE. Cette sélection exigeante garantit à chaque client un accompagnement d&apos;exception et une valorisation optimale de sa vente.
+        </p>
 
         {/* NOS IMPLANTATIONS */}
-        <EditableText value="NOS IMPLANTATIONS" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '57px', top: '293px', fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt', letterSpacing: '0.15em', color: '#000000' }} />
+        <span style={{
+          position: 'absolute', left: '57px', top: '293px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt',
+          letterSpacing: '0.15em', color: '#000000',
+        }}>NOS IMPLANTATIONS</span>
 
-        <div style={{ position: 'absolute', left: '57px', top: '330px', width: '400px' }}>
-          <EditableText
-            value="Une présence ciblée sur les marchés les plus recherchés. Chaque implantation répond à une logique claire : offrir une expertise locale solide, soutenue par une couverture nationale."
-            onChange={() => {}}
-            tag="p" multiline
-            style={bodyText}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', top: '330px', width: '400px',
+          ...bodyText, margin: 0,
+        }}>
+          Une présence ciblée sur les marchés les plus recherchés. Chaque implantation répond à une logique claire : offrir une expertise locale solide, soutenue par une couverture nationale.
+        </p>
 
         {/* Gold line before PARIS */}
         <div style={{ position: 'absolute', left: '180px', top: '410px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
 
         {/* PARIS & ILE-DE-FRANCE - y=450, 470 */}
-        <EditableText value="PARIS" onChange={() => {}} tag="div"
+        <EditableText value={maisonBonaparte.regions.parisLigne1}
+          onChange={(v) => updateRegion('parisLigne1', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '450px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
-        <EditableText value="& ÎLE-DE-FRANCE" onChange={() => {}} tag="div"
+        <EditableText value={maisonBonaparte.regions.parisLigne2}
+          onChange={(v) => updateRegion('parisLigne2', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '470px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
         {/* PARIS photos - img2=[397,418,480,531] img3=[314,458,409,517] */}
         <EditableImage src="/images/page6_img2.jpeg" onChange={(p) => updateImplPhoto(0, p)}
@@ -145,7 +155,8 @@ export default function MaisonBonapartePage() {
         <div style={{ position: 'absolute', left: '180px', top: '525px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
 
         {/* CÔTE D'AZUR - y=567 */}
-        <EditableText value="CÔTE D'AZUR" onChange={() => {}} tag="div"
+        <EditableText value={maisonBonaparte.regions.azur}
+          onChange={(v) => updateRegion('azur', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '567px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
         {/* Azur photos - layered: img7=chateau, img4=mer aerienne (behind), img6=vague (on top, overlapping img4) */}
         <EditableImage src="/images/page6_img7.jpeg" onChange={(p) => updateImplPhoto(2, p)}
@@ -159,22 +170,23 @@ export default function MaisonBonapartePage() {
         <div style={{ position: 'absolute', left: '180px', top: '625px', width: '0.8px', height: '30px', background: '#ad9d7d' }} />
 
         {/* PAYS BASQUE & CÔTE ATLANTIQUE - y=665, 685 */}
-        <EditableText value="PAYS BASQUE" onChange={() => {}} tag="div"
+        <EditableText value={maisonBonaparte.regions.basqueLigne1}
+          onChange={(v) => updateRegion('basqueLigne1', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '665px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
-        <EditableText value="& CÔTE ATLANTIQUE" onChange={() => {}} tag="div"
+        <EditableText value={maisonBonaparte.regions.basqueLigne2}
+          onChange={(v) => updateRegion('basqueLigne2', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '685px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
         {/* Basque photo */}
         <EditableImage src="/images/page6_img5.jpeg" onChange={(p) => updateImplPhoto(4, p)}
           alt="Basque" style={{ position: 'absolute', left: '370px', top: '645px', width: '102px', height: '71px' }} />
 
         {/* Bottom text */}
-        <div style={{ position: 'absolute', left: '57px', bottom: '40px', width: '480px' }}>
-          <EditableText
-            value="Une présence partout en France, qui garantit le même niveau d'exigence et d'excellence."
-            onChange={() => {}}
-            tag="p" style={bodyText}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', bottom: '40px', width: '480px',
+          ...bodyText, margin: 0,
+        }}>
+          Une présence partout en France, qui garantit le même niveau d&apos;exigence et d&apos;excellence.
+        </p>
 
         <span style={{ position: 'absolute', left: '569px', top: '811px', fontFamily: "'Caudex', serif", fontSize: '8.5pt', color: '#000000' }}>11</span>
       </div>

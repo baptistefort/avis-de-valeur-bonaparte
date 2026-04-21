@@ -96,6 +96,13 @@ export interface DocumentState {
   maisonBonaparte: {
     photoAgence: string;
     photosImplantations: string[];
+    regions: {
+      parisLigne1: string;
+      parisLigne2: string;
+      azur: string;
+      basqueLigne1: string;
+      basqueLigne2: string;
+    };
   };
 
   // Page 7 - Mandat & Strategie
@@ -247,6 +254,13 @@ export const useDocumentStore = create<DocumentState>((set) => ({
   maisonBonaparte: {
     photoAgence: '/images/page6_img1.jpeg',
     photosImplantations: ['/images/page6_img2.jpeg', '/images/page6_img3.jpeg', '/images/page6_img4.jpeg', '/images/page6_img5.jpeg', '/images/page6_img6.jpeg'],
+    regions: {
+      parisLigne1: 'PARIS',
+      parisLigne2: '& ÎLE-DE-FRANCE',
+      azur: "CÔTE D'AZUR",
+      basqueLigne1: 'PAYS BASQUE',
+      basqueLigne2: '& CÔTE ATLANTIQUE',
+    },
   },
 
   mandat: {
