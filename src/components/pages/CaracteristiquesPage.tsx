@@ -119,20 +119,21 @@ export default function CaracteristiquesPage() {
           position: 'absolute', top: '451.6px', left: '0px', width: '340px',
           display: 'flex', flexDirection: 'column', alignItems: 'center',
         }}>
-          {caracFields.map((field) => (
+          {caracFields
+            .filter((field) => caracteristiques[field.key]?.trim())
+            .map((field) => (
             <div key={field.key} style={{
               display: 'flex', alignItems: 'baseline', marginBottom: '3.4pt',
               whiteSpace: 'nowrap',
             }}>
-              <EditableText
-                value={field.label}
-                onChange={() => {}}
-                tag="span"
+              <span
                 style={{
                   fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
                   fontSize: '8.5pt', color: '#000000',
                 }}
-              />
+              >
+                {field.label}
+              </span>
               <EditableText
                 value={caracteristiques[field.key]}
                 onChange={(v) => updateCaracteristiques({ [field.key]: v })}
