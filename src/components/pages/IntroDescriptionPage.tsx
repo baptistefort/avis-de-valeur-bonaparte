@@ -157,30 +157,6 @@ export default function IntroDescriptionPage() {
           />
         </div>
 
-        {/* "PARIS 06 | RUE SAINT-PLACIDE" box: border gold, white bg */}
-        {/* x=652.2-595=57.2 → 870.3-595=275.3, y=530.3→553.6 */}
-        <div style={{
-          position: 'absolute', left: '57.2px', top: '530.3px',
-          padding: '4px 11px',
-          border: '1px solid #ad9d7d', background: '#ffffff',
-          display: 'inline-flex', alignItems: 'center', gap: '6px',
-          zIndex: 2,
-        }}>
-          {/* Location pin SVG */}
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="none">
-            <path d="M5 0C2.24 0 0 2.24 0 5c0 3.75 5 7 5 7s5-3.25 5-7c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S4.17 3.5 5 3.5s1.5.67 1.5 1.5S5.83 6.5 5 6.5z" fill="#ad9d7d"/>
-          </svg>
-          <EditableText
-            value={description.localisation}
-            onChange={(localisation) => updateDescription({ localisation })}
-            tag="span"
-            style={{
-              fontFamily: "'Montserrat', sans-serif", fontWeight: 400,
-              fontSize: '9.5pt', color: '#ae9e7d', letterSpacing: '0.05em',
-            }}
-          />
-        </div>
-
         {/* Map illustration: PDF y=529→843, full width of right half */}
         <EditableImage
           src={intro.photoMap}
