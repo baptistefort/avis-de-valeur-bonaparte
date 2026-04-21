@@ -32,35 +32,35 @@ export default function MaisonBonapartePage() {
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="MAISON" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="BONAPARTE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>MAISON</div>
+          <div style={{ margin: 0 }}>BONAPARTE</div>
         </div>
 
         {/* Subtitle gold - 2 lines max */}
-        <div style={{ position: 'absolute', left: '57px', top: '155px', width: '480px' }}>
-          <EditableText
-            value="La Maison BONAPARTE incarne un héritage fondé sur l'excellence au service de vos projets immobiliers."
-            onChange={() => {}}
-            tag="p" multiline
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '11pt', color: '#ae9e7d', lineHeight: '16pt' }}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', top: '155px', width: '480px',
+          fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '11pt',
+          color: '#ae9e7d', lineHeight: '16pt', margin: 0,
+        }}>
+          La Maison BONAPARTE incarne un héritage fondé sur l&apos;excellence au service de vos projets immobiliers.
+        </p>
 
         {/* Gold line */}
         <div style={{ position: 'absolute', left: '155px', top: '203px', width: '0.8px', height: '40px', background: '#ad9d7d' }} />
 
         {/* NOS VALEURS */}
-        <EditableText value="NOS VALEURS" onChange={() => {}} tag="span"
-          style={{ position: 'absolute', left: '57px', top: '255px', fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt', letterSpacing: '0.15em', color: '#ae9e7d' }} />
+        <span style={{
+          position: 'absolute', left: '57px', top: '255px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt',
+          letterSpacing: '0.15em', color: '#ae9e7d',
+        }}>NOS VALEURS</span>
 
-        <div style={{ position: 'absolute', left: '57px', top: '290px', width: '350px' }}>
-          <EditableText
-            value="Les valeurs de la Maison BONAPARTE guident chaque décision et chaque relation client. Elles soutiennent notre exigence d'excellence avec rigueur et passion."
-            onChange={() => {}}
-            tag="p" multiline
-            style={bodyText}
-          />
-        </div>
+        <p style={{
+          position: 'absolute', left: '57px', top: '290px', width: '350px',
+          ...bodyText, margin: 0,
+        }}>
+          Les valeurs de la Maison BONAPARTE guident chaque décision et chaque relation client. Elles soutiennent notre exigence d&apos;excellence avec rigueur et passion.
+        </p>
 
         {/* Gold vertical line from top of EXCELLENCE (y=399) to bottom of INNOVATION (y=559) */}
         <div style={{
@@ -79,8 +79,9 @@ export default function MaisonBonapartePage() {
             position: 'absolute', left: '178px', top: `${item.y}px`,
             border: '1px solid #ad9d7d', padding: '4px 12px',
           }}>
-            <EditableText value={item.val} onChange={() => {}} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '8.5pt', color: '#ae9e7d', letterSpacing: '0.1em' }} />
+            <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: '8.5pt', color: '#ae9e7d', letterSpacing: '0.1em' }}>
+              {item.val}
+            </span>
           </div>
         ))}
 
