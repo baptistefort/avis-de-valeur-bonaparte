@@ -16,6 +16,8 @@ import { useDocumentStore } from '@/store/useDocumentStore';
 export default function Editor() {
   const documentRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(0.65);
+  const marcheVisible = useDocumentStore((s) => s.marche.visible);
+  const updateMarche = useDocumentStore((s) => s.updateMarche);
 
   // Server-side Puppeteer export: the same Chrome engine that paints the
   // editor rasterises the PDF, so letter-spacing, baseline, line-height and
@@ -103,8 +105,34 @@ export default function Editor() {
           {/* Page 3 - Caractéristiques + Valorisation */}
           <div style={spreadStyle}><CaracteristiquesPage /></div>
 
-          {/* Page 4 - Analyse du marché + Vendus proches */}
-          <div style={spreadStyle}><MarchePage /></div>
+          {/* Page 4 - Analyse du marché + Vendus proches (deletable via trash) */}
+          {marcheVisible && (
+            <div style={{ ...spreadStyle, position: 'relative' }} className="marche-wrapper">
+              <button
+                type="button"
+                onClick={() => updateMarche({ visible: false })}
+                title="Supprimer cette page"
+                aria-label="Supprimer la page Analyse du marché"
+                className="marche-delete-btn"
+                style={{
+                  position: 'absolute', top: '12px', right: '12px', zIndex: 10,
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  background: '#ffffff', border: '1px solid #ad9d7d',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', opacity: 0, transition: 'opacity 0.2s ease',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+                }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ad9d7d" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                  <path d="M10 11v6M14 11v6" />
+                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                </svg>
+              </button>
+              <MarchePage />
+            </div>
+          )}
 
           {/* Page 5 - En vente + Prix de présentation */}
           <div style={spreadStyle}><EnVentePrixPage /></div>

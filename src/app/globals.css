@@ -197,7 +197,19 @@ body {
   display: none !important;
 }
 
+.marche-wrapper:hover .marche-delete-btn {
+  opacity: 1 !important;
+}
+.marche-delete-btn:hover {
+  background: #ad9d7d !important;
+  border-color: #ad9d7d !important;
+}
+.marche-delete-btn:hover svg {
+  stroke: #ffffff !important;
+}
+
 @media print {
   .toolbar { display: none !important; }
   .editable:hover { outline: none !important; }
+  .marche-delete-btn { display: none !important; }
 }

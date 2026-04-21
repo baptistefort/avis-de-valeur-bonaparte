@@ -92,6 +92,7 @@ export interface DocumentState {
     titre: string;
     texte: string;
     photo: string;
+    visible: boolean;
   };
 
   // Page 4 - Vendus proches
@@ -264,6 +265,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
     titre: 'LE MARCHÉ PARISIEN EN 2026',
     texte: "En 2026, le marché immobilier parisien se stabilise après plusieurs années de rebond progressif. Les taux d'intérêt restent relativement bas pour les meilleurs profils, ce qui soutient le pouvoir d'achat des acquéreurs, tandis que la demande pour les biens bien situés et performants énergétiquement reste forte.\n\nLes prix ont progressé modérément en 2025, de 3 à 5 % en moyenne, avec de fortes disparités selon les arrondissements : les quartiers centraux et les biens rénovés continuent de se valoriser, tandis que les logements nécessitant des travaux stagnent, voire baissent légèrement.\n\nLa tension sur l'offre, particulièrement dans le centre de la capitale, maintient la pression sur les prix dans les zones les plus recherchées.\n\nMalgré un contexte économique et international encore incertain, les perspectives pour 2026 restent globalement favorables, avec une croissance mesurée et un retour à un équilibre durable entre l'offre et la demande.",
     photo: '/images/page4_img1.jpeg',
+    visible: true,
   },
 
   vendusProches: [

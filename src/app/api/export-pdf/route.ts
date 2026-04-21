@@ -56,7 +56,13 @@ export async function POST(req: Request) {
   try {
     const merged = await PDFDocument.create();
 
-    for (const spec of PAGES) {
+    // Filter out pages marked as hidden in state (user-deletable sections).
+    const activePages = PAGES.filter((spec) => {
+      if (spec.id === 'marche' && state.marche?.visible === false) return false;
+      return true;
+    });
+
+    for (const spec of activePages) {
       const page = await browser.newPage();
       try {
         // Viewport matches the SCALED design size (4/3 to reach A4 in
