@@ -210,9 +210,9 @@ export default function CaracteristiquesPage() {
           }}
         />
 
-        {/* Avantages bullets - x=208, y=397 */}
+        {/* Avantages bullets - x=208, y=407 */}
         <div style={{
-          position: 'absolute', left: '208.6px', top: '397px', width: '265px',
+          position: 'absolute', left: '208.6px', top: '407px', width: '265px',
         }}>
           {valorisation.avantages.map((av, i) => (
             <div key={i} style={{ marginBottom: '16px', display: 'flex', gap: '4px' }}>
@@ -235,9 +235,9 @@ export default function CaracteristiquesPage() {
           }}
         />
 
-        {/* Inconvenients bullets - x=204, y=647 */}
+        {/* Inconvenients bullets - x=204, y=657 */}
         <div style={{
-          position: 'absolute', left: '204.4px', top: '647px', width: '269px',
+          position: 'absolute', left: '204.4px', top: '657px', width: '269px',
         }}>
           {valorisation.inconvenients.map((inc, i) => (
             <div key={i} style={{ marginBottom: '16px', display: 'flex', gap: '4px' }}>
