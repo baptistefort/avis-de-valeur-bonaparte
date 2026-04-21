@@ -115,7 +115,10 @@ export default function CaracteristiquesPage() {
           display: 'flex', flexDirection: 'column', alignItems: 'center',
         }}>
           {caracFieldKeys
-            .filter((key) => caracteristiques[key]?.trim())
+            .filter((key) =>
+              caracteristiques[key]?.trim() ||
+              caracteristiques.labels[key]?.trim()
+            )
             .map((key) => (
             <div key={key} style={{
               display: 'flex', alignItems: 'baseline', marginBottom: '3.4pt',
@@ -215,21 +218,21 @@ export default function CaracteristiquesPage() {
           ))}
         </div>
 
-        {/* INCONVÉNIENTS - x=204.4, y=621.1 */}
+        {/* INCONVÉNIENTS - x=204.4, y=611.1 (-10px gap from avantages) */}
         <EditableText
           value="INCONVÉNIENTS"
           onChange={() => {}}
           tag="span"
           style={{
-            position: 'absolute', left: '204.4px', top: '621.1px',
+            position: 'absolute', left: '204.4px', top: '611.1px',
             fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '14pt',
             letterSpacing: '0.2em', textTransform: 'uppercase', color: '#ae9e7d',
           }}
         />
 
-        {/* Inconvenients bullets - x=204, y=672 */}
+        {/* Inconvenients bullets - x=204, y=662 */}
         <div style={{
-          position: 'absolute', left: '204.4px', top: '672px', width: '269px',
+          position: 'absolute', left: '204.4px', top: '662px', width: '269px',
         }}>
           {valorisation.inconvenients.map((inc, i) => (
             <div key={i} style={{ marginBottom: '16px', display: 'flex', gap: '4px' }}>

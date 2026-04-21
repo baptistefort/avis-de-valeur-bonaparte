@@ -289,7 +289,14 @@ export const useDocumentStore = create<DocumentState>((set) => ({
 
   maisonBonaparte: {
     photoAgence: '/images/page6_img1.jpeg',
-    photosImplantations: ['/images/page6_img2.jpeg', '/images/page6_img3.jpeg', '/images/page6_img4.jpeg', '/images/page6_img5.jpeg', '/images/page6_img6.jpeg'],
+    photosImplantations: [
+      '/images/page6_img2.jpeg',
+      '/images/page6_img3.jpeg',
+      '/images/page6_img7.jpeg',
+      '/images/page6_img6.jpeg',
+      '/images/page6_img4.jpeg',
+      '/images/page6_img5.jpeg',
+    ],
     regions: {
       parisLigne1: 'PARIS',
       parisLigne2: '& ÎLE-DE-FRANCE',

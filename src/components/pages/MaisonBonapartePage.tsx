@@ -145,9 +145,9 @@ export default function MaisonBonapartePage() {
           onChange={(v) => updateRegion('parisLigne2', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '470px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
         {/* PARIS photos - img2=[397,418,480,531] img3=[314,458,409,517] */}
-        <EditableImage src="/images/page6_img2.jpeg" onChange={(p) => updateImplPhoto(0, p)}
+        <EditableImage src={maisonBonaparte.photosImplantations[0]} onChange={(p) => updateImplPhoto(0, p)}
           alt="Paris 1" style={{ position: 'absolute', left: '427px', top: '418px', width: '82px', height: '113px' }} />
-        <EditableImage src="/images/page6_img3.jpeg" onChange={(p) => updateImplPhoto(1, p)}
+        <EditableImage src={maisonBonaparte.photosImplantations[1]} onChange={(p) => updateImplPhoto(1, p)}
           alt="Paris 2" style={{ position: 'absolute', left: '344px', top: '458px', width: '95px', height: '59px' }} />
 
         {/* Gold line before COTE D'AZUR */}
@@ -157,12 +157,12 @@ export default function MaisonBonapartePage() {
         <EditableText value={maisonBonaparte.regions.azur}
           onChange={(v) => updateRegion('azur', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '567px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
-        {/* Azur photos - layered: img7=chateau, img4=mer aerienne (behind), img6=vague (on top, overlapping img4) */}
-        <EditableImage src="/images/page6_img7.jpeg" onChange={(p) => updateImplPhoto(2, p)}
+        {/* Azur photos - layered: idx 2=chateau, idx 4=mer aerienne (behind), idx 3=vague (on top, overlapping idx 4) */}
+        <EditableImage src={maisonBonaparte.photosImplantations[2]} onChange={(p) => updateImplPhoto(2, p)}
           alt="Azur 1" style={{ position: 'absolute', left: '312px', top: '545px', width: '92px', height: '63px', zIndex: 1 }} />
-        <EditableImage src="/images/page6_img4.jpeg" onChange={(p) => updateImplPhoto(4, p)}
+        <EditableImage src={maisonBonaparte.photosImplantations[4]} onChange={(p) => updateImplPhoto(4, p)}
           alt="Azur 3" style={{ position: 'absolute', left: '486px', top: '550px', width: '84px', height: '113px', zIndex: 1 }} />
-        <EditableImage src="/images/page6_img6.jpeg" onChange={(p) => updateImplPhoto(3, p)}
+        <EditableImage src={maisonBonaparte.photosImplantations[3]} onChange={(p) => updateImplPhoto(3, p)}
           alt="Azur 2" style={{ position: 'absolute', left: '422px', top: '564px', width: '87px', height: '68px', zIndex: 2 }} />
 
         {/* Gold line before PAYS BASQUE */}
@@ -175,8 +175,8 @@ export default function MaisonBonapartePage() {
         <EditableText value={maisonBonaparte.regions.basqueLigne2}
           onChange={(v) => updateRegion('basqueLigne2', v)} tag="div"
           style={{ position: 'absolute', left: '92px', top: '685px', fontFamily: "'Caudex', serif", fontSize: '14pt', letterSpacing: '0.1em', color: '#000000' }} />
-        {/* Basque photo */}
-        <EditableImage src="/images/page6_img5.jpeg" onChange={(p) => updateImplPhoto(4, p)}
+        {/* Basque photo (idx 5) */}
+        <EditableImage src={maisonBonaparte.photosImplantations[5]} onChange={(p) => updateImplPhoto(5, p)}
           alt="Basque" style={{ position: 'absolute', left: '370px', top: '645px', width: '102px', height: '71px' }} />
 
         {/* Bottom text */}
