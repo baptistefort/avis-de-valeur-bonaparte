@@ -52,9 +52,9 @@ export default function EnVentePrixPage() {
           />
         </div>
 
-        {/* Market analysis text */}
+        {/* Market analysis text (full width now that the photo is removed) */}
         <div style={{
-          position: 'absolute', left: '57px', top: '279px', width: '295px',
+          position: 'absolute', left: '57px', top: '279px', width: '480px',
         }}>
           <EditableText
             value={marche.texte}
@@ -67,17 +67,6 @@ export default function EnVentePrixPage() {
             }}
           />
         </div>
-
-        {/* Photo marché */}
-        <EditableImage
-          src={marche.photo}
-          onChange={(photo) => updateMarche({ photo })}
-          alt="Photo marché"
-          style={{
-            position: 'absolute', left: '395px', top: '229px',
-            width: '201px', height: '434px',
-          }}
-        />
 
       </div>
 
