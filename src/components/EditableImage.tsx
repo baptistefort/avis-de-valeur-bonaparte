@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import { asset } from '@/lib/paths';
 
 interface EditableImageProps {
   src: string;
@@ -44,7 +45,7 @@ export default function EditableImage({
     >
       {src && (
         <img
-          src={src}
+          src={asset(src)}
           alt={alt}
           className="w-full h-full object-cover"
           style={{ objectPosition }}

@@ -4,6 +4,7 @@ import React from 'react';
 import EditableText from '../EditableText';
 import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import { asset } from '@/lib/paths';
 
 export default function ContactPage() {
   const { contact, updateContact } = useDocumentStore();
@@ -96,7 +97,7 @@ export default function ContactPage() {
 
       {/* BONAPARTE logo bottom - centered */}
       <div style={{ position: 'absolute', bottom: '100px', left: '0', right: '0', zIndex: 2, display: 'flex', justifyContent: 'center' }}>
-        <img src="/images/logo_bonaparte.png" alt="Bonaparte" style={{ width: '280px', height: 'auto' }} draggable={false} />
+        <img src={asset("/images/logo_bonaparte.png")} alt="Bonaparte" style={{ width: '280px', height: 'auto' }} draggable={false} />
       </div>
 
       {/* Footer - PDF: y=785 and y=793 (STATIC) */}

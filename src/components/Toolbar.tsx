@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { asset } from '@/lib/paths';
 
 interface ToolbarProps {
   onExportPDF: () => void;
@@ -28,7 +29,7 @@ export default function Toolbar({ onExportPDF, zoom, setZoom }: ToolbarProps) {
       <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
-            src="/images/logo_bonaparte.png"
+            src={asset("/images/logo_bonaparte.png")}
             alt="Bonaparte — Art de Vivre"
             className="h-10 w-auto select-none"
             draggable={false}

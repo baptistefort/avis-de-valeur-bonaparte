@@ -4,6 +4,7 @@ import React from 'react';
 import EditableText from '../EditableText';
 import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import { asset } from '@/lib/paths';
 
 export default function CoverPage() {
   const { cover, updateCover } = useDocumentStore();
@@ -35,7 +36,7 @@ export default function CoverPage() {
           }}
         >
           <img
-            src="/images/logo_bonaparte.png"
+            src={asset("/images/logo_bonaparte.png")}
             alt="Bonaparte Art de Vivre"
             style={{
               width: '337px',

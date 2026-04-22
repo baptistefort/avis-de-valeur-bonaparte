@@ -3,6 +3,7 @@
 import React from 'react';
 import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import { asset } from '@/lib/paths';
 
 export default function DiffusionPage() {
   const { diffusion, updateDiffusion } = useDocumentStore();
@@ -78,7 +79,7 @@ export default function DiffusionPage() {
         </div>
 
         {/* Portails + logos image (STATIC) */}
-        <img src="/images/portails_logos.png" alt="" draggable={false}
+        <img src={asset("/images/portails_logos.png")} alt="" draggable={false}
           style={{ position: 'absolute', left: '25px', top: '500px', width: '545px', height: 'auto' }} />
 
       </div>

@@ -12,6 +12,7 @@ import MandatStrategiePage from './pages/MandatStrategiePage';
 import DiffusionPage from './pages/DiffusionPage';
 import ContactPage from './pages/ContactPage';
 import { useDocumentStore } from '@/store/useDocumentStore';
+import { BASE_PATH } from '@/lib/paths';
 
 export default function Editor() {
   const documentRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ export default function Editor() {
       )
     );
 
-    const res = await fetch('/api/export-pdf', {
+    const res = await fetch(`${BASE_PATH}/api/export-pdf`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(state),
