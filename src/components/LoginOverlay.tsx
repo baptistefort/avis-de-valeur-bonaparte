@@ -4,6 +4,13 @@ import React, { useState } from 'react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { asset } from '@/lib/paths';
 
+const FONT_MONT = "'Montserrat', sans-serif";
+const FONT_CAUDEX = "'Caudex', serif";
+const COLOR_BEIGE = '#f1eee8';
+const COLOR_GOLD = '#ae9e7d';
+const COLOR_GOLD_LINE = '#ad9d7d';
+const COLOR_TAUPE = '#8a7d65';
+
 export default function LoginOverlay() {
   const login = useAuthStore((s) => s.login);
   const [email, setEmail] = useState('');
@@ -21,7 +28,6 @@ export default function LoginOverlay() {
       setPassword('');
       setSubmitting(false);
     }
-    // On success, the overlay unmounts automatically.
   };
 
   return (
@@ -33,65 +39,90 @@ export default function LoginOverlay() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(241, 238, 232, 0.72)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        fontFamily: "'Montserrat', sans-serif",
+        background: `rgba(241, 238, 232, 0.82)`,
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
+        fontFamily: FONT_MONT,
+        padding: '24px',
       }}
     >
       <form
         onSubmit={handleSubmit}
         style={{
           width: '100%',
-          maxWidth: '420px',
-          padding: '48px 40px',
-          background: '#ffffff',
-          border: '1px solid #ad9d7d',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+          maxWidth: '440px',
+          padding: '56px 48px',
+          background: COLOR_BEIGE,
+          border: `1px solid ${COLOR_GOLD_LINE}`,
+          boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
           textAlign: 'center',
         }}
       >
+        {/* Logo — blends seamlessly now that card = logo's beige */}
         <img
           src={asset('/images/logo_bonaparte.png')}
           alt="Bonaparte"
-          style={{ width: '180px', height: 'auto', margin: '0 auto 24px', display: 'block' }}
+          style={{
+            width: '200px',
+            height: 'auto',
+            margin: '0 auto 32px',
+            display: 'block',
+          }}
           draggable={false}
         />
 
+        {/* Caudex eyebrow title */}
         <h1
           style={{
-            fontFamily: "'Caudex', serif",
-            fontWeight: 700,
+            fontFamily: FONT_CAUDEX,
+            fontWeight: 400,
             fontSize: '14pt',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color: '#000000',
             margin: 0,
-            marginBottom: '6px',
+            marginBottom: '8px',
           }}
         >
           Avis de Valeur
         </h1>
+
+        {/* Gold separator line, same style as PDF title separators */}
+        <div
+          style={{
+            width: '0.8px',
+            height: '28px',
+            background: COLOR_GOLD_LINE,
+            margin: '16px auto 20px',
+          }}
+        />
+
         <p
           style={{
-            fontSize: '10pt',
-            color: '#8a7d65',
+            fontFamily: FONT_MONT,
+            fontSize: '9pt',
+            color: COLOR_TAUPE,
             margin: 0,
-            marginBottom: '32px',
-            letterSpacing: '0.02em',
+            marginBottom: '36px',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
           }}
         >
           Accès réservé
         </p>
 
-        <label
-          style={{
-            display: 'block',
-            textAlign: 'left',
-            marginBottom: '14px',
-          }}
-        >
-          <span style={{ fontSize: '9pt', color: '#000000', fontWeight: 600, letterSpacing: '0.04em' }}>
+        {/* Email */}
+        <label style={{ display: 'block', textAlign: 'left', marginBottom: '18px' }}>
+          <span
+            style={{
+              fontFamily: FONT_MONT,
+              fontSize: '8.5pt',
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#000000',
+              textTransform: 'uppercase',
+            }}
+          >
             Email
           </span>
           <input
@@ -102,28 +133,33 @@ export default function LoginOverlay() {
             onChange={(e) => setEmail(e.target.value)}
             style={{
               width: '100%',
-              marginTop: '6px',
-              padding: '10px 12px',
-              border: '1px solid #d6cdb8',
+              marginTop: '8px',
+              padding: '11px 14px',
+              border: `1px solid ${COLOR_GOLD_LINE}`,
               background: '#ffffff',
+              fontFamily: FONT_MONT,
               fontSize: '10pt',
-              fontFamily: "'Montserrat', sans-serif",
               color: '#000000',
               outline: 'none',
+              borderRadius: 0,
             }}
-            onFocus={(e) => (e.currentTarget.style.borderColor = '#ad9d7d')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = '#d6cdb8')}
+            onFocus={(e) => (e.currentTarget.style.borderColor = COLOR_GOLD)}
+            onBlur={(e) => (e.currentTarget.style.borderColor = COLOR_GOLD_LINE)}
           />
         </label>
 
-        <label
-          style={{
-            display: 'block',
-            textAlign: 'left',
-            marginBottom: error ? '10px' : '24px',
-          }}
-        >
-          <span style={{ fontSize: '9pt', color: '#000000', fontWeight: 600, letterSpacing: '0.04em' }}>
+        {/* Password */}
+        <label style={{ display: 'block', textAlign: 'left', marginBottom: error ? '10px' : '28px' }}>
+          <span
+            style={{
+              fontFamily: FONT_MONT,
+              fontSize: '8.5pt',
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#000000',
+              textTransform: 'uppercase',
+            }}
+          >
             Mot de passe
           </span>
           <input
@@ -134,27 +170,29 @@ export default function LoginOverlay() {
             onChange={(e) => setPassword(e.target.value)}
             style={{
               width: '100%',
-              marginTop: '6px',
-              padding: '10px 12px',
-              border: `1px solid ${error ? '#c0392b' : '#d6cdb8'}`,
+              marginTop: '8px',
+              padding: '11px 14px',
+              border: `1px solid ${error ? '#c0392b' : COLOR_GOLD_LINE}`,
               background: '#ffffff',
+              fontFamily: FONT_MONT,
               fontSize: '10pt',
-              fontFamily: "'Montserrat', sans-serif",
               color: '#000000',
               outline: 'none',
+              borderRadius: 0,
             }}
-            onFocus={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : '#ad9d7d')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : '#d6cdb8')}
+            onFocus={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : COLOR_GOLD)}
+            onBlur={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : COLOR_GOLD_LINE)}
           />
         </label>
 
         {error && (
           <p
             style={{
-              fontSize: '9pt',
+              fontFamily: FONT_MONT,
+              fontSize: '8.5pt',
               color: '#c0392b',
               margin: 0,
-              marginBottom: '18px',
+              marginBottom: '22px',
               textAlign: 'left',
             }}
           >
@@ -167,24 +205,25 @@ export default function LoginOverlay() {
           disabled={submitting}
           style={{
             width: '100%',
-            padding: '12px',
-            background: '#ae9e7d',
+            padding: '13px',
+            background: COLOR_GOLD,
             color: '#ffffff',
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: '10pt',
+            fontFamily: FONT_MONT,
+            fontSize: '9pt',
             fontWeight: 500,
-            letterSpacing: '0.05em',
+            letterSpacing: '0.12em',
             textTransform: 'uppercase',
             border: 'none',
             cursor: submitting ? 'not-allowed' : 'pointer',
             opacity: submitting ? 0.6 : 1,
             transition: 'background 0.2s ease',
+            borderRadius: 0,
           }}
           onMouseEnter={(e) => {
-            if (!submitting) e.currentTarget.style.background = '#8a7d65';
+            if (!submitting) e.currentTarget.style.background = COLOR_TAUPE;
           }}
           onMouseLeave={(e) => {
-            if (!submitting) e.currentTarget.style.background = '#ae9e7d';
+            if (!submitting) e.currentTarget.style.background = COLOR_GOLD;
           }}
         >
           {submitting ? 'Connexion…' : 'Se connecter'}

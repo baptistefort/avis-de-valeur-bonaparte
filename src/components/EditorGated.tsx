@@ -9,10 +9,19 @@ export default function EditorGated() {
   const authenticated = useAuthStore((s) => s.authenticated);
   const [hydrated, setHydrated] = useState(false);
 
-  // Wait for zustand/persist to rehydrate from localStorage before rendering,
-  // so we don't flash the login overlay on already-logged-in sessions.
+  // Use zustand/persist's hydration lifecycle so we don't flash the
+  // login overlay on already-logged-in sessions. A plain useEffect races
+  // with the localStorage read — onFinishHydration fires only when the
+  // store has fully rehydrated.
   useEffect(() => {
-    setHydrated(true);
+    if (useAuthStore.persist.hasHydrated()) {
+      setHydrated(true);
+      return;
+    }
+    const unsub = useAuthStore.persist.onFinishHydration(() => {
+      setHydrated(true);
+    });
+    return unsub;
   }, []);
 
   if (!hydrated) return null;

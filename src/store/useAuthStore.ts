@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 const ACCESS_PASSWORD = 'bonaparte2026';
 
@@ -22,6 +22,13 @@ export const useAuthStore = create<AuthState>()(
       },
       logout: () => set({ authenticated: false, email: null }),
     }),
-    { name: 'bonaparte-auth' }
+    {
+      name: 'bonaparte-auth',
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({
+        authenticated: state.authenticated,
+        email: state.email,
+      }),
+    }
   )
 );
