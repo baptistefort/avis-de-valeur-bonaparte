@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { asset } from '@/lib/paths';
+import { useAuthStore } from '@/store/useAuthStore';
 
 interface ToolbarProps {
   onExportPDF: () => void;
@@ -11,6 +12,7 @@ interface ToolbarProps {
 
 export default function Toolbar({ onExportPDF, zoom, setZoom }: ToolbarProps) {
   const [exporting, setExporting] = useState(false);
+  const logout = useAuthStore((s) => s.logout);
 
   const handleExport = async () => {
     setExporting(true);
@@ -86,6 +88,16 @@ export default function Toolbar({ onExportPDF, zoom, setZoom }: ToolbarProps) {
                 Télécharger PDF
               </>
             )}
+          </button>
+          <button
+            onClick={logout}
+            title="Se déconnecter"
+            className="px-3 py-2 border border-[#ad9d7d]/50 text-[#8a7d65] hover:text-white hover:bg-[#ae9e7d] hover:border-[#ae9e7d] text-sm transition-colors flex items-center gap-1"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span className="hidden sm:inline">Déconnexion</span>
           </button>
         </div>
       </div>
