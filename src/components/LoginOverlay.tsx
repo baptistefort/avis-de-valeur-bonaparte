@@ -5,7 +5,6 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { asset } from '@/lib/paths';
 
 const FONT_MONT = "'Montserrat', sans-serif";
-const FONT_CAUDEX = "'Caudex', serif";
 const COLOR_BEIGE = '#f1eee8';
 const COLOR_GOLD = '#ae9e7d';
 const COLOR_GOLD_LINE = '#ad9d7d';
@@ -63,53 +62,13 @@ export default function LoginOverlay() {
           src={asset('/images/logo_bonaparte.png')}
           alt="Bonaparte"
           style={{
-            width: '200px',
+            width: '220px',
             height: 'auto',
-            margin: '0 auto 32px',
+            margin: '0 auto 40px',
             display: 'block',
           }}
           draggable={false}
         />
-
-        {/* Caudex eyebrow title */}
-        <h1
-          style={{
-            fontFamily: FONT_CAUDEX,
-            fontWeight: 400,
-            fontSize: '14pt',
-            letterSpacing: '0.25em',
-            textTransform: 'uppercase',
-            color: '#000000',
-            margin: 0,
-            marginBottom: '8px',
-          }}
-        >
-          Avis de Valeur
-        </h1>
-
-        {/* Gold separator line, same style as PDF title separators */}
-        <div
-          style={{
-            width: '0.8px',
-            height: '28px',
-            background: COLOR_GOLD_LINE,
-            margin: '16px auto 20px',
-          }}
-        />
-
-        <p
-          style={{
-            fontFamily: FONT_MONT,
-            fontSize: '9pt',
-            color: COLOR_TAUPE,
-            margin: 0,
-            marginBottom: '36px',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-          }}
-        >
-          Accès réservé
-        </p>
 
         {/* Email */}
         <label style={{ display: 'block', textAlign: 'left', marginBottom: '18px' }}>
