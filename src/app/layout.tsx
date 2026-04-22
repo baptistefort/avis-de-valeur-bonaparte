@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Avis de Valeur - Bonaparte Art de Vivre",
@@ -16,7 +17,7 @@ export default function RootLayout({
       <head>
         {/* Local self-hosted fonts (so html2canvas can read @font-face cssRules
             without CORS issues from Google Fonts) */}
-        <link rel="stylesheet" href="/fonts/fonts.css" />
+        <link rel="stylesheet" href={asset("/fonts/fonts.css")} />
       </head>
       <body>{children}</body>
     </html>
