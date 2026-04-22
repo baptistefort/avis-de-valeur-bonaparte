@@ -19,15 +19,15 @@ export default function EnVentePrixPage() {
       {/* ============ LEFT HALF - LE PRIX DE PRÉSENTATION ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
-        {/* Title LE PRIX DE PRÉSENTATION */}
+        {/* Title LE PRIX DE PRÉSENTATION (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '90px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="LE PRIX" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="DE PRÉSENTATION" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>LE PRIX</div>
+          <div style={{ margin: 0 }}>DE PRÉSENTATION</div>
         </div>
 
         {/* Gold line under title - centered under the title */}
@@ -87,15 +87,15 @@ export default function EnVentePrixPage() {
       {/* ============ RIGHT HALF - EN VENTE PROCHE DE CHEZ VOUS ============ */}
       <div className="pdf-half" style={{ background: '#f1eee8' }}>
 
-        {/* Title EN VENTE PROCHE DE CHEZ VOUS */}
+        {/* Title EN VENTE PROCHE DE CHEZ VOUS (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '90px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="EN VENTE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="PROCHE DE CHEZ VOUS" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>EN VENTE</div>
+          <div style={{ margin: 0 }}>PROCHE DE CHEZ VOUS</div>
         </div>
 
         {/* Bien 1 */}

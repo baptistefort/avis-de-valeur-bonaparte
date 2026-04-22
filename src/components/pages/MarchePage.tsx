@@ -20,15 +20,15 @@ export default function MarchePage() {
       {/* ============ LEFT HALF ============ */}
       <div className="pdf-half" style={{ background: '#ffffff' }}>
 
-        {/* Title ANALYSE DU MARCHÉ */}
+        {/* Title ANALYSE DU MARCHÉ (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '90px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="ANALYSE" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="DU MARCHÉ" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>ANALYSE</div>
+          <div style={{ margin: 0 }}>DU MARCHÉ</div>
         </div>
 
         {/* Gold line under title - aligned to A of ANALYSE */}
@@ -82,15 +82,15 @@ export default function MarchePage() {
       {/* ============ RIGHT HALF ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
-        {/* Title VENDU PROCHE DE CHEZ VOUS */}
+        {/* Title VENDU PROCHE DE CHEZ VOUS (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '90px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
-          <EditableText value="VENDU" onChange={() => {}} tag="div" style={{ margin: 0 }} />
-          <EditableText value="PROCHE DE CHEZ VOUS" onChange={() => {}} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>VENDU</div>
+          <div style={{ margin: 0 }}>PROCHE DE CHEZ VOUS</div>
         </div>
 
         {/* Gold line under title - aligned to V of VENDU */}

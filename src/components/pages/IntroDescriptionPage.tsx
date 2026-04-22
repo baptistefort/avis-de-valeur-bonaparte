@@ -30,18 +30,13 @@ export default function IntroDescriptionPage() {
       {/* ============ LEFT HALF (0 - 595.3pt) ============ */}
       <div className="pdf-half" style={{ background: '#ffffff' }}>
 
-        {/* INTRODUCTION - Caudex 25pt, letter-spacing 0.35em */}
-        <EditableText
-          value={intro.titre}
-          onChange={(titre) => updateIntro({ titre })}
-          tag="h2"
-          style={{
-            position: 'absolute', left: '56.7px', top: '120.7px',
-            fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
-            letterSpacing: '0.35em', textTransform: 'uppercase',
-            color: '#000000', margin: 0,
-          }}
-        />
+        {/* INTRODUCTION - Caudex 25pt (STATIC) */}
+        <h2 style={{
+          position: 'absolute', left: '56.7px', top: '120.7px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
+          letterSpacing: '0.35em', textTransform: 'uppercase',
+          color: '#000000', margin: 0,
+        }}>INTRODUCTION</h2>
 
         {/* Gold line - centered under INTRODUCTION title */}
         <div style={{
@@ -120,18 +115,13 @@ export default function IntroDescriptionPage() {
       {/* ============ RIGHT HALF (595.3 - 1190.6pt) ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
-        {/* DESCRIPTION - Caudex 25pt */}
-        <EditableText
-          value={description.titre}
-          onChange={(titre) => updateDescription({ titre })}
-          tag="h2"
-          style={{
-            position: 'absolute', left: '57px', top: '120.3px',
-            fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
-            letterSpacing: '0.35em', textTransform: 'uppercase',
-            color: '#000000', margin: 0,
-          }}
-        />
+        {/* DESCRIPTION - Caudex 25pt (STATIC) */}
+        <h2 style={{
+          position: 'absolute', left: '57px', top: '120.3px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
+          letterSpacing: '0.35em', textTransform: 'uppercase',
+          color: '#000000', margin: 0,
+        }}>DESCRIPTION</h2>
 
         {/* Gold line - centered under DESCRIPTION title */}
         <div style={{

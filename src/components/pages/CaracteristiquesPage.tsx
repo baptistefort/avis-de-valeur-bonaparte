@@ -44,15 +44,15 @@ export default function CaracteristiquesPage() {
       {/* ============ LEFT HALF ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', overflow: 'visible', zIndex: 2 }}>
 
-        {/* Title CARACTÉRISTIQUES DU BIEN */}
+        {/* Title CARACTÉRISTIQUES DU BIEN (STATIC) */}
         <div style={{
           position: 'absolute', left: '56.7px', top: '90.3px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', margin: 0, lineHeight: '30pt',
         }}>
-          <EditableText value={caracteristiques.titreLigne1} onChange={(v) => updateCaracteristiques({ titreLigne1: v })} tag="div" style={{ margin: 0 }} />
-          <EditableText value={caracteristiques.titreLigne2} onChange={(v) => updateCaracteristiques({ titreLigne2: v })} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>CARACTÉRISTIQUES</div>
+          <div style={{ margin: 0 }}>DU BIEN</div>
         </div>
 
         {/* Gold line under title - below the 80px title */}
@@ -157,16 +157,16 @@ export default function CaracteristiquesPage() {
           background: '#e3dcd1',
         }} />
 
-        {/* Title LES ÉLÉMENTS DE VALORISATION ET DE PONDÉRATION */}
+        {/* Title LES ÉLÉMENTS DE VALORISATION ET DE PONDÉRATION (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '60.3px',
           fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', margin: 0, lineHeight: '30pt',
         }}>
-          <EditableText value={valorisation.titreLigne1} onChange={(v) => updateValorisation({ titreLigne1: v })} tag="div" style={{ margin: 0 }} />
-          <EditableText value={valorisation.titreLigne2} onChange={(v) => updateValorisation({ titreLigne2: v })} tag="div" style={{ margin: 0 }} />
-          <EditableText value={valorisation.titreLigne3} onChange={(v) => updateValorisation({ titreLigne3: v })} tag="div" style={{ margin: 0 }} />
+          <div style={{ margin: 0 }}>LES ÉLÉMENTS</div>
+          <div style={{ margin: 0 }}>DE VALORISATION</div>
+          <div style={{ margin: 0 }}>ET DE PONDÉRATION</div>
         </div>
 
         {/* Gold line under title - below the 120px title */}
