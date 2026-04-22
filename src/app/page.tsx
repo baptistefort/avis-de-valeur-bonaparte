@@ -1,5 +1,5 @@
-import Editor from '@/components/Editor';
+import EditorGated from '@/components/EditorGated';
 
 export default function Home() {
-  return <Editor />;
+  return <EditorGated />;
 }

@@ -27,7 +27,7 @@ export default function ContactPage() {
       <h2 style={{
         position: 'absolute', left: '340px', top: '151px',
         fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
-        letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000000', margin: 0,
+        letterSpacing: '0.25em', textTransform: 'uppercase', color: '#000000', margin: 0, lineHeight: '30pt',
       }}>CONTACT</h2>
 
       {/* Gold line - longer and more centered under CONTACT */}

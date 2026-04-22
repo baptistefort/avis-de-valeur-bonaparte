@@ -30,12 +30,12 @@ export default function IntroDescriptionPage() {
       {/* ============ LEFT HALF (0 - 595.3pt) ============ */}
       <div className="pdf-half" style={{ background: '#ffffff' }}>
 
-        {/* INTRODUCTION - Caudex 25pt (STATIC) */}
+        {/* INTRODUCTION - Caudex 22pt bold (STATIC, unified) */}
         <h2 style={{
           position: 'absolute', left: '56.7px', top: '120.7px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
-          letterSpacing: '0.35em', textTransform: 'uppercase',
-          color: '#000000', margin: 0,
+          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          letterSpacing: '0.25em', textTransform: 'uppercase',
+          color: '#000000', margin: 0, lineHeight: '30pt',
         }}>INTRODUCTION</h2>
 
         {/* Gold line - centered under INTRODUCTION title */}
@@ -115,12 +115,12 @@ export default function IntroDescriptionPage() {
       {/* ============ RIGHT HALF (595.3 - 1190.6pt) ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
-        {/* DESCRIPTION - Caudex 25pt (STATIC) */}
+        {/* DESCRIPTION - Caudex 22pt bold (STATIC, unified) */}
         <h2 style={{
           position: 'absolute', left: '57px', top: '120.3px',
-          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '25pt',
-          letterSpacing: '0.35em', textTransform: 'uppercase',
-          color: '#000000', margin: 0,
+          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          letterSpacing: '0.25em', textTransform: 'uppercase',
+          color: '#000000', margin: 0, lineHeight: '30pt',
         }}>DESCRIPTION</h2>
 
         {/* Gold line - centered under DESCRIPTION title */}
