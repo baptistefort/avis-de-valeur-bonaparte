@@ -19,7 +19,7 @@ export default function MarchePage() {
   return (
     <div className="pdf-spread" style={{ background: '#ffffff' }}>
 
-      {/* ============ LEFT HALF - VENDU PROCHE DE CHEZ VOUS ============ */}
+      {/* ============ LEFT HALF - VENDU PROCHE DE CHEZ VOUS (text-only layout) ============ */}
       <div className="pdf-half" style={{ background: '#ffffff' }}>
 
         {/* Title VENDU PROCHE DE CHEZ VOUS (STATIC) */}
@@ -39,62 +39,36 @@ export default function MarchePage() {
           width: '0.8px', height: '40px', background: '#ad9d7d',
         }} />
 
-        {/* 3 biens vendus - photo + details */}
-        {/* Bien 1 */}
-        <EditableImage src={vendusProches[0].photo} onChange={(photo) => updateVendusProches(0, { photo })}
-          alt="Vendu 1" style={{ position: 'absolute', left: '56px', top: '201px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '269px', top: '229px' }}>
-          <EditableText value={vendusProches[0].surface} onChange={(v) => updateVendusProches(0, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={vendusProches[0].prix} onChange={(v) => updateVendusProches(0, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${vendusProches[0].prixM2}`} onChange={(v) => updateVendusProches(0, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '56px', top: '328px' }}>
-          <EditableText value={vendusProches[0].adresse} onChange={(v) => updateVendusProches(0, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={vendusProches[0].description} onChange={(v) => updateVendusProches(0, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
-        </div>
+        {/* 3 biens vendus - text-only, 3 rows (adresse/desc left, surface/prix/box right) */}
+        <div style={{
+          position: 'absolute', left: '57px', top: '300px', width: '480px',
+        }}>
+          {vendusProches.map((bien, i) => (
+            <div key={i} style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
+              marginBottom: i < 2 ? '45px' : '0',
+            }}>
+              {/* Left: Address + description */}
+              <div style={{ flex: 1 }}>
+                <EditableText value={bien.adresse} onChange={(v) => updateVendusProches(i, { adresse: v })} tag="div"
+                  style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
+                <EditableText value={bien.description} onChange={(v) => updateVendusProches(i, { description: v })} tag="div" multiline
+                  style={{ ...bodyText, whiteSpace: 'pre-line' }} />
+              </div>
 
-        {/* Gold vertical line */}
-        <div style={{ position: 'absolute', left: '164px', top: '388px', width: '0.8px', height: '191px', background: '#ad9d7d' }} />
-
-        {/* Bien 2 */}
-        <EditableImage src={vendusProches[1].photo} onChange={(photo) => updateVendusProches(1, { photo })}
-          alt="Vendu 2" style={{ position: 'absolute', left: '216px', top: '401px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '429px', top: '429px' }}>
-          <EditableText value={vendusProches[1].surface} onChange={(v) => updateVendusProches(1, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={vendusProches[1].prix} onChange={(v) => updateVendusProches(1, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${vendusProches[1].prixM2}`} onChange={(v) => updateVendusProches(1, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '216px', top: '528px' }}>
-          <EditableText value={vendusProches[1].adresse} onChange={(v) => updateVendusProches(1, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={vendusProches[1].description} onChange={(v) => updateVendusProches(1, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
-        </div>
-
-        {/* Bien 3 */}
-        <EditableImage src={vendusProches[2].photo} onChange={(photo) => updateVendusProches(2, { photo })}
-          alt="Vendu 3" style={{ position: 'absolute', left: '56px', top: '600px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '269px', top: '632px' }}>
-          <EditableText value={vendusProches[2].surface} onChange={(v) => updateVendusProches(2, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={vendusProches[2].prix} onChange={(v) => updateVendusProches(2, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${vendusProches[2].prixM2}`} onChange={(v) => updateVendusProches(2, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '56px', top: '727px' }}>
-          <EditableText value={vendusProches[2].adresse} onChange={(v) => updateVendusProches(2, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={vendusProches[2].description} onChange={(v) => updateVendusProches(2, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
+              {/* Right: Surface, prix, prix/m² - aligned right */}
+              <div style={{ marginLeft: '20px', flexShrink: 0 }}>
+                <EditableText value={bien.surface} onChange={(v) => updateVendusProches(i, { surface: v })} tag="div"
+                  style={{ ...bodyText, marginBottom: '2px' }} />
+                <EditableText value={bien.prix} onChange={(v) => updateVendusProches(i, { prix: v })} tag="div"
+                  style={{ ...bodyText, marginBottom: '4px' }} />
+                <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
+                  <EditableText value={`soit ${bien.prixM2}`} onChange={(v) => updateVendusProches(i, { prixM2: v.replace('soit ', '') })} tag="span"
+                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
