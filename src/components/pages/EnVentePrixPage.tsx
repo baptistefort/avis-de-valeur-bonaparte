@@ -5,24 +5,89 @@ import EditableText from '../EditableText';
 import EditableImage from '../EditableImage';
 import { useDocumentStore } from '@/store/useDocumentStore';
 
+// After content swap: this spread now holds ANALYSE DU MARCHÉ (left) + LE PRIX DE PRÉSENTATION (right).
+// Kept the filename to avoid breaking /print/envente route + Editor imports.
 export default function EnVentePrixPage() {
-  const { enVenteProches, prix, updateEnVenteProches, updatePrix } = useDocumentStore();
+  const { marche, prix, updateMarche, updatePrix } = useDocumentStore();
 
   const bodyText: React.CSSProperties = {
     fontFamily: "'Montserrat', sans-serif", fontWeight: 400,
-    fontSize: '8.5pt', color: '#000000', lineHeight: 1.4, textAlign: 'left',
+    fontSize: '8.5pt', color: '#000000', lineHeight: 1.4,
+    textAlign: 'left',
   };
 
   return (
     <div className="pdf-spread" style={{ background: '#ffffff' }}>
 
-      {/* ============ LEFT HALF - LE PRIX DE PRÉSENTATION ============ */}
+      {/* ============ LEFT HALF - ANALYSE DU MARCHÉ ============ */}
+      <div className="pdf-half" style={{ background: '#ffffff' }}>
+
+        {/* Title ANALYSE DU MARCHÉ (STATIC) */}
+        <div style={{
+          position: 'absolute', left: '57px', top: '90px',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
+          letterSpacing: '0.25em', textTransform: 'uppercase',
+          color: '#000000', lineHeight: '30pt',
+        }}>
+          <div style={{ margin: 0 }}>ANALYSE</div>
+          <div style={{ margin: 0 }}>DU MARCHÉ</div>
+        </div>
+
+        {/* Gold line under title */}
+        <div style={{
+          position: 'absolute', left: '57px', top: '178px',
+          width: '0.8px', height: '40px', background: '#ad9d7d',
+        }} />
+
+        {/* Sub-title LE MARCHÉ PARISIEN EN 2026 */}
+        <div style={{ position: 'absolute', left: '57px', top: '230px', width: '180px' }}>
+          <EditableText
+            value={marche.titre}
+            onChange={(titre) => updateMarche({ titre })}
+            tag="div"
+            style={{
+              fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '12pt',
+              letterSpacing: '0.03em', color: '#ae9e7d', lineHeight: '17pt',
+            }}
+          />
+        </div>
+
+        {/* Market analysis text */}
+        <div style={{
+          position: 'absolute', left: '57px', top: '279px', width: '295px',
+        }}>
+          <EditableText
+            value={marche.texte}
+            onChange={(texte) => updateMarche({ texte })}
+            tag="div" multiline
+            style={{
+              fontFamily: "'Montserrat', sans-serif", fontWeight: 400,
+              fontSize: '8pt', color: '#000000', lineHeight: 1.35,
+              textAlign: 'justify', whiteSpace: 'pre-line',
+            }}
+          />
+        </div>
+
+        {/* Photo marché */}
+        <EditableImage
+          src={marche.photo}
+          onChange={(photo) => updateMarche({ photo })}
+          alt="Photo marché"
+          style={{
+            position: 'absolute', left: '395px', top: '229px',
+            width: '201px', height: '434px',
+          }}
+        />
+
+      </div>
+
+      {/* ============ RIGHT HALF - LE PRIX DE PRÉSENTATION ============ */}
       <div className="pdf-half" style={{ background: '#ffffff', position: 'relative' }}>
 
         {/* Title LE PRIX DE PRÉSENTATION (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '90px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
@@ -82,78 +147,6 @@ export default function EnVentePrixPage() {
             width: '617px', height: '461px',
           }}
         />
-      </div>
-
-      {/* ============ RIGHT HALF - EN VENTE PROCHE DE CHEZ VOUS ============ */}
-      <div className="pdf-half" style={{ background: '#f1eee8' }}>
-
-        {/* Title EN VENTE PROCHE DE CHEZ VOUS (STATIC) */}
-        <div style={{
-          position: 'absolute', left: '57px', top: '90px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
-          letterSpacing: '0.25em', textTransform: 'uppercase',
-          color: '#000000', lineHeight: '30pt',
-        }}>
-          <div style={{ margin: 0 }}>EN VENTE</div>
-          <div style={{ margin: 0 }}>PROCHE DE CHEZ VOUS</div>
-        </div>
-
-        {/* Bien 1 */}
-        <EditableImage src={enVenteProches[0].photo} onChange={(photo) => updateEnVenteProches(0, { photo })}
-          alt="Bien 1" style={{ position: 'absolute', left: '56px', top: '201px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '269px', top: '229px' }}>
-          <EditableText value={enVenteProches[0].surface} onChange={(v) => updateEnVenteProches(0, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[0].prix} onChange={(v) => updateEnVenteProches(0, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${enVenteProches[0].prixM2}`} onChange={(v) => updateEnVenteProches(0, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '56px', top: '328px' }}>
-          <EditableText value={enVenteProches[0].adresse} onChange={(v) => updateEnVenteProches(0, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[0].description} onChange={(v) => updateEnVenteProches(0, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
-        </div>
-
-        {/* Gold vertical line */}
-        <div style={{ position: 'absolute', left: '164px', top: '388px', width: '0.8px', height: '191px', background: '#ad9d7d' }} />
-
-        {/* Bien 2 */}
-        <EditableImage src={enVenteProches[1].photo} onChange={(photo) => updateEnVenteProches(1, { photo })}
-          alt="Bien 2" style={{ position: 'absolute', left: '216px', top: '401px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '429px', top: '429px' }}>
-          <EditableText value={enVenteProches[1].surface} onChange={(v) => updateEnVenteProches(1, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[1].prix} onChange={(v) => updateEnVenteProches(1, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${enVenteProches[1].prixM2}`} onChange={(v) => updateEnVenteProches(1, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '216px', top: '528px' }}>
-          <EditableText value={enVenteProches[1].adresse} onChange={(v) => updateEnVenteProches(1, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[1].description} onChange={(v) => updateEnVenteProches(1, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
-        </div>
-
-        {/* Bien 3 */}
-        <EditableImage src={enVenteProches[2].photo} onChange={(photo) => updateEnVenteProches(2, { photo })}
-          alt="Bien 3" style={{ position: 'absolute', left: '56px', top: '600px', width: '192px', height: '115px' }} />
-        <div style={{ position: 'absolute', left: '269px', top: '632px' }}>
-          <EditableText value={enVenteProches[2].surface} onChange={(v) => updateEnVenteProches(2, { surface: v })} tag="div" style={{ ...bodyText, marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[2].prix} onChange={(v) => updateEnVenteProches(2, { prix: v })} tag="div" style={{ ...bodyText, marginBottom: '4px' }} />
-          <div style={{ border: '1px solid #ad9d7d', padding: '2px 8px', display: 'inline-block' }}>
-            <EditableText value={`soit ${enVenteProches[2].prixM2}`} onChange={(v) => updateEnVenteProches(2, { prixM2: v.replace('soit ', '') })} tag="span"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '8.5pt', color: '#000000' }} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', left: '56px', top: '727px' }}>
-          <EditableText value={enVenteProches[2].adresse} onChange={(v) => updateEnVenteProches(2, { adresse: v })} tag="div"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: '8.5pt', color: '#000000', marginBottom: '2px' }} />
-          <EditableText value={enVenteProches[2].description} onChange={(v) => updateEnVenteProches(2, { description: v })} tag="div" multiline
-            style={{ ...bodyText, whiteSpace: 'pre-line' }} />
-        </div>
       </div>
     </div>
   );

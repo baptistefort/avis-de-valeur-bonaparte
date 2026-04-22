@@ -47,7 +47,7 @@ export default function CaracteristiquesPage() {
         {/* Title CARACTÉRISTIQUES DU BIEN (STATIC) */}
         <div style={{
           position: 'absolute', left: '56.7px', top: '90.3px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', margin: 0, lineHeight: '30pt',
         }}>
@@ -160,7 +160,7 @@ export default function CaracteristiquesPage() {
         {/* Title LES ÉLÉMENTS DE VALORISATION ET DE PONDÉRATION (STATIC) */}
         <div style={{
           position: 'absolute', left: '57px', top: '60.3px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', margin: 0, lineHeight: '30pt',
         }}>

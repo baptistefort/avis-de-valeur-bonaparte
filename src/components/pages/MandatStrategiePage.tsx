@@ -27,7 +27,7 @@ export default function MandatStrategiePage() {
         {/* Title LE MANDAT BONAPARTE */}
         <div style={{
           position: 'absolute', left: '57px', top: '65px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>
@@ -94,7 +94,7 @@ export default function MandatStrategiePage() {
         {/* Title STRATÉGIE DE COMMUNICATION BONAPARTE */}
         <div style={{
           position: 'absolute', left: '57px', top: '40px',
-          fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+          fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
           letterSpacing: '0.25em', textTransform: 'uppercase',
           color: '#000000', lineHeight: '30pt',
         }}>

@@ -26,7 +26,7 @@ export default function ContactPage() {
       {/* CONTACT - PDF: x=340, y=151, Caudex-Bold 25.5pt (STATIC) */}
       <h2 style={{
         position: 'absolute', left: '340px', top: '151px',
-        fontFamily: "'Caudex', serif", fontWeight: 700, fontSize: '22pt',
+        fontFamily: "'Caudex', serif", fontWeight: 400, fontSize: '22pt',
         letterSpacing: '0.25em', textTransform: 'uppercase', color: '#000000', margin: 0, lineHeight: '30pt',
       }}>CONTACT</h2>
 
